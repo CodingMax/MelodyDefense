@@ -25,7 +25,7 @@ animations = [ {
 [node name="World" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="Bullet" type="Area2D" parent="."]
+[node name="Bullet" type="KinematicBody2D" parent="."]
 position = Vector2( 413.735, 501.401 )
 scale = Vector2( 7.28293, 7.28293 )
 script = ExtResource( 3 )

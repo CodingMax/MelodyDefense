@@ -28,7 +28,7 @@ public class Bullet : KinematicBody2D
 	public override void _Process(float delta)
 	{
 		//Position.y += speed * delta;
-		this.move_and_collide(Vector2 Position, infinite_inertia = true, exclude_raycast_shapes = true, test_only = false);
+		//this.move_and_collide(Vector2 Position, infinite_inertia = true, exclude_raycast_shapes = true, test_only = false);
 	//  this.Shot();
 	 // velocity = MoveAndSlide(velocity);
 	}
