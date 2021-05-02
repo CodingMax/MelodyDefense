@@ -3,6 +3,8 @@ using Godot;
 
 public class Bullet : KinematicBody2D
 {
+
+
 	private Sprite _sprite;
 	private Vector2 _initialPos;
 	
@@ -37,9 +39,10 @@ public class Bullet : KinematicBody2D
 	if (collision != null)
 	{
 		this.Reset();
-	//GD.Print(collision.collider.name);
-	} 
-	velocity = MoveAndSlide(velocity);
+	GD.Print("Kollision");
+	}
+	   
+	//velocity = MoveAndSlide(velocity);
 	//	this.Position.y += speed * delta;
 		//this.move_and_collide(Vector2 Position, infinite_inertia = true, exclude_raycast_shapes = true, test_only = false);
 	//  this.Shot();
@@ -47,9 +50,20 @@ public class Bullet : KinematicBody2D
 	
 	
 }
+	private void _on_Wall_body_exited(object body)
+	{
+		if (body is Bullet bullet)
+		{
+			this.Reset();
+			GD.Print("Kollision");
+		}
+	}
 	public void Reset()
 	{
-		Position = _initialPos;
+		this.Position = _initialPos;
+		//_sprite.Position = new Vector2(6,5);
 		_sprite.Position = new Vector2(6,5);
 	}
 }
+
+
