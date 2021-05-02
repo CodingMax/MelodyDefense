@@ -11,7 +11,7 @@ public class Tower : StaticBody2D
 	}
 	void fireWeapon() {
 		
-		float shotHeight =  5;
+		//float shotHeight =  5;
 	var	newShot = new Bullet();//this.Position.x + shotHeight
 	}
 	 public override void _Input(InputEvent inputEvent)
