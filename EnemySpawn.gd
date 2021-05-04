@@ -7,6 +7,8 @@ var spawnTimes = [1, 1, 3, 4, 1, 2]
 var enemyNumber 
 var spawnTime
 var spawnEnd = spawnTimes.size()
+var height = 4
+var size = OS.window_size
 func _ready():
 	initialPos = self.global_position
 	timer = 0
@@ -14,10 +16,12 @@ func _ready():
 	
 
 func spawnEnemy():
-	var newEnemy = Enemy.instance()
-	add_child(newEnemy)
-	newEnemy.global_position  = initialPos
-	newEnemy.add_to_group("enemys")
+	for i in height:
+		i += 1
+		var newEnemy = Enemy.instance()
+		add_child(newEnemy)
+		newEnemy.global_position = Vector2(-25, size.y - i*100)
+		newEnemy.add_to_group("enemys")
 
 func _process(delta):
 	timer += delta

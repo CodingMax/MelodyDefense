@@ -20,7 +20,7 @@ func loadSound(a):
 	#pitch.set_pitch_scale(a)
 	sound.pitch_scale =  a*0.2 + 0.5
 func initialize(num):
-	#num += 1
+	num += 1
 	self.global_position = Vector2(num*200, size.y - num*100)#positions[number]
 	key = number_to_key(num)
 	loadSound(num)
