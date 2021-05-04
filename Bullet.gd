@@ -22,7 +22,7 @@ func _physics_process(delta):
 func _on_Bullet_body_entered(body):
 	if body.is_in_group("enemys"):
 		body.queue_free()
-		print("Hit Enemy!")
+		get_node("../../Score").score += 1
 		queue_free()
 		position = initialPos
-		print("Hit!")
+		
