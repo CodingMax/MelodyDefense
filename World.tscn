@@ -16,3 +16,10 @@ script = ExtResource( 4 )
 
 [node name="Score" type="Node" parent="."]
 script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="Score"]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
