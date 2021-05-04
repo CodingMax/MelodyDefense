@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Amaj8.ogg-a106b14e339bca2d1585829ae1dde40e.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/Amaj8.ogg"
+dest_files=[ "res://.import/Amaj8.ogg-a106b14e339bca2d1585829ae1dde40e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

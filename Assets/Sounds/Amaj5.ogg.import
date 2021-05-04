@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Amaj5.ogg-d8c31dbc1209a5bc79c105bc8bb82ada.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/Amaj5.ogg"
+dest_files=[ "res://.import/Amaj5.ogg-d8c31dbc1209a5bc79c105bc8bb82ada.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Amaj3.mp3-58738b1a40d81286d26efe44ceff4cac.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Amaj3.mp3"
+dest_files=[ "res://.import/Amaj3.mp3-58738b1a40d81286d26efe44ceff4cac.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
