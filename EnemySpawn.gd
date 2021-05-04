@@ -13,7 +13,7 @@ func _ready():
 	enemyNumber = 0
 	
 
-func spawnWave():
+func spawnEnemy():
 	var newEnemy = Enemy.instance()
 	add_child(newEnemy)
 	newEnemy.global_position  = initialPos
@@ -26,7 +26,7 @@ func _process(delta):
 	spawnTime = spawnTimes[enemyNumber]
 	if timer > spawnTime:
 		print(enemyNumber)
-		spawnWave()
+		spawnEnemy()
 		timer = 0
 		enemyNumber += 1
 		

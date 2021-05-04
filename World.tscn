@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Tower.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Sounds/Amaj1.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Score.gd" type="Script" id=3]
 [ext_resource path="res://EnemySpawn.gd" type="Script" id=4]
@@ -15,9 +14,6 @@ script = ExtResource( 5 )
 [node name="EnemySpawn" type="Node2D" parent="."]
 position = Vector2( -22.2545, 553.256 )
 script = ExtResource( 4 )
-
-[node name="Tower" parent="." instance=ExtResource( 1 )]
-position = Vector2( 352.525, 576.161 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )

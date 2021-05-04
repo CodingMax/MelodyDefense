@@ -6,7 +6,8 @@ var sound
 var number = 0
 var sounds = [load("res://Assets/Sounds/Amaj1.ogg"), load("res://Assets/Sounds/Amaj2.ogg"), load("res://Assets/Sounds/Amaj3.ogg"), load("res://Assets/Sounds/Amaj4.ogg"), load("res://Assets/Sounds/Amaj5.ogg")]
 var key
-var positions = [Vector2(0,5), Vector2(200,550), Vector2(300,400), Vector2(750,300)]
+var size = OS.window_size
+#var positions = [Vector2(number*100, size.y-number*35), Vector2(200,500), Vector2(600,100), Vector2(500,200), Vector2(400,300), Vector2(300,400),  Vector2(600, 0)]
 
 func loadSound(a):
 	var player = AudioStreamPlayer.new()
@@ -18,10 +19,12 @@ func _ready():
 	initialPos = self.global_position 
 	initialize(number)
 	
-func initialize(number):
-	self.global_position = positions[number]
-	key = number_to_key(number)
-	loadSound(number)
+	
+func initialize(num):
+	num += 1
+	self.global_position = Vector2(num*200, size.y - num*100)#positions[number]
+	key = number_to_key(num)
+	loadSound(num)
 	
 func number_to_key(number):
 	match number:
