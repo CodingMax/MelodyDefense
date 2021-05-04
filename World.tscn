@@ -1,21 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Tower.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Bullet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://EnemySpawn.gd" type="Script" id=4]
 
 [sub_resource type="Environment" id=1]
 
 [node name="WorldEnvironment" type="WorldEnvironment"]
 environment = SubResource( 1 )
 
+[node name="EnemySpawn" type="Node2D" parent="."]
+position = Vector2( -22.2545, 553.256 )
+script = ExtResource( 4 )
+
 [node name="Tower" parent="." instance=ExtResource( 1 )]
-position = Vector2( 207.842, 85.4629 )
-collision_layer = 2
-
-[node name="Bullet" parent="Tower" instance=ExtResource( 2 )]
-position = Vector2( 21.561, 15.068 )
-
-[node name="Enemy" parent="." instance=ExtResource( 3 )]
-position = Vector2( 28.21, 95.86 )
-scale = Vector2( 1, 15.174 )
+position = Vector2( 352.525, 576.161 )

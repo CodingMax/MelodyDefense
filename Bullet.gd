@@ -20,8 +20,9 @@ func _physics_process(delta):
 	position -= transform.x * speed * delta
 
 func _on_Bullet_body_entered(body):
-#	if body.is_in_group("targets"):
-#		body.queue_free()
-#	queue_free()
-	position = initialPos
-	print("position")
+	if body.is_in_group("enemys"):
+		body.queue_free()
+		print("Hit Enemy!")
+		queue_free()
+		position = initialPos
+		print("Hit!")
