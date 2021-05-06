@@ -7,7 +7,8 @@ var spawnTimes = [1, 1, 3, 4, 1, 2]
 var enemyNumber 
 var spawnTime
 var spawnEnd = spawnTimes.size()
-var height = 4
+var height = 1
+var count = 0
 var size = OS.window_size
 func _ready():
 	initialPos = self.global_position
@@ -33,4 +34,7 @@ func _process(delta):
 		spawnEnemy()
 		timer = 0
 		enemyNumber += 1
-		
+		count += 1
+	if count >5:
+		height += 1
+		count = 0
