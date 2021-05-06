@@ -4,8 +4,9 @@ var size = OS.window_size
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+#var timer = 0
 var Tower= preload("res://Tower.tscn") 
-var level = 4;
+var level = 4
 # Called when the node enters the scene tree for the first time.
 func loadTowers():
 	for number in level:
@@ -21,5 +22,8 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+
 #func _process(delta):
-#	pass
+	#timer += delta
+	#if timer > 15:
+	#	level += 1

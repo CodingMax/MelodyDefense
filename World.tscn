@@ -1,10 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
+[ext_resource path="res://GameOver.gd" type="Script" id=1]
 [ext_resource path="res://Score.gd" type="Script" id=3]
 [ext_resource path="res://EnemySpawn.gd" type="Script" id=4]
 [ext_resource path="res://World.gd" type="Script" id=5]
 
 [sub_resource type="Environment" id=1]
+
+[sub_resource type="CanvasItemMaterial" id=2]
 
 [node name="WorldEnvironment" type="WorldEnvironment"]
 environment = SubResource( 1 )
@@ -20,6 +23,19 @@ script = ExtResource( 3 )
 [node name="Label" type="Label" parent="Score"]
 margin_right = 40.0
 margin_bottom = 14.0
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="GameOver" type="PopupMenu" parent="."]
+material = SubResource( 2 )
+anchor_right = 0.02
+anchor_bottom = 0.02
+margin_left = 41.7207
+margin_top = 45.7656
+margin_right = 962.241
+margin_bottom = 537.766
+hint_tooltip = "Game Over"
+hide_on_checkable_item_selection = false
+script = ExtResource( 1 )
