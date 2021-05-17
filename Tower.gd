@@ -14,7 +14,7 @@ var sounds = ["res://Assets/Sounds/Amaj2.wav", "res://Assets/Sounds/Amaj7.ogg", 
 func loadSound(a):
 	var player = AudioStreamPlayer.new()
 	add_child(player)
-	player.stream = load(sounds[a])
+	player.stream = load(sounds[1])
 	sound = player
 	#var pitch = AudioEffectPitchShift
 	#pitch.set_pitch_scale(a)
