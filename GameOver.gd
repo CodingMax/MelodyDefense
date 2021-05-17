@@ -1,6 +1,5 @@
-extends PopupMenu
+extends TextureRect
 
 
 func _ready():
-	add_check_item("Restart", 1)
 	pass

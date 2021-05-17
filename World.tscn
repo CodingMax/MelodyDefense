@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://GameOver.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Art/Saite.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://EnemySpawn.tscn" type="PackedScene" id=4]
 [ext_resource path="res://World.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Art/photo_2021-05-17 13.45.59.jpeg" type="Texture" id=6]
+[ext_resource path="res://Assets/Art/HG-Restartscreen-1280x800px.png" type="Texture" id=7]
 
 [sub_resource type="Environment" id=1]
 
@@ -44,17 +45,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GameOver" type="PopupMenu" parent="."]
+[node name="GameOver" type="TextureRect" parent="."]
 material = SubResource( 2 )
 anchor_right = 0.02
 anchor_bottom = 0.02
-margin_left = 41.7207
-margin_top = 45.7656
-margin_right = 962.241
-margin_bottom = 537.766
+margin_left = -39.0
+margin_top = -39.0
+margin_right = 1221.52
+margin_bottom = 750.0
+rect_scale = Vector2( 0.85, 0.85 )
 hint_tooltip = "Game Over"
-hide_on_checkable_item_selection = false
+mouse_default_cursor_shape = 2
+texture = ExtResource( 7 )
+stretch_mode = 5
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Piano" type="AnimatedSprite" parent="."]
 position = Vector2( 534.457, 203.223 )
@@ -145,3 +152,7 @@ playing = true
 position = Vector2( -251.668, -116.586 )
 frames = SubResource( 4 )
 playing = true
+
+[connection signal="gui_input" from="GameOver" to="." method="_on_GameOver_gui_input"]
+[connection signal="hide" from="GameOver" to="." method="_on_GameOver_hide"]
+[connection signal="mouse_entered" from="GameOver" to="." method="_on_GameOver_mouse_entered"]
