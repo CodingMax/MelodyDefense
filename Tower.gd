@@ -14,11 +14,11 @@ var sounds = ["res://Assets/Sounds/Amaj2.wav", "res://Assets/Sounds/Amaj7.ogg", 
 func loadSound(a):
 	var player = AudioStreamPlayer.new()
 	add_child(player)
-	player.stream = load(sounds[a])
+	player.stream = load(sounds[1])
 	sound = player
 	#var pitch = AudioEffectPitchShift
 	#pitch.set_pitch_scale(a)
-	sound.pitch_scale =  a*0.2 + 0.5
+	sound.pitch_scale =  a*0.1 + 0.3
 func initialize(num):
 	#num += 1
 	self.global_position = Vector2(num*200, size.y - num*100)#positions[number]
@@ -37,6 +37,13 @@ func number_to_key(n):
 		3: return "d"
 		4: return "f"
 		5: return "g"
+		6: return "h"
+		7: return "j"
+		8: return "k"
+		9: return "l"
+		10: return "i"
+		11: return "o"
+		12: return "p"
 		_: return "a"
 		
 func shoot():
