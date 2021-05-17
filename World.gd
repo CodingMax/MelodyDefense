@@ -10,6 +10,7 @@ var Tower= preload("res://Tower.tscn")
 var level = 12
 var saiten
 var count
+var enemys
 # Called when the node enters the scene tree for the first time.
 func loadTowers():
 	saiten = get_tree().get_nodes_in_group("Saiten")
@@ -53,4 +54,8 @@ func _on_GameOver_hide():
 
 func _on_GameOver_gui_input(event):
 	get_node("GameOver").hide()
+	get_node("Score").score = 0
+	enemys = get_tree().get_nodes_in_group("enemys")
+	for i in enemys:
+		i.queue_free()
 	pass # Replace with function body.

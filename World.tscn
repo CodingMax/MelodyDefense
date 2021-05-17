@@ -46,6 +46,7 @@ __meta__ = {
 }
 
 [node name="GameOver" type="TextureRect" parent="."]
+visible = false
 material = SubResource( 2 )
 anchor_right = 0.02
 anchor_bottom = 0.02
