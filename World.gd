@@ -19,8 +19,8 @@ func loadTowers():
 		count += 1
 		var newEnemySpawn = EnemySpawn.instance()
 		add_child(newEnemySpawn)
-		newEnemySpawn.global_position = Vector2(-25, i.global_position.y)
 		newEnemySpawn.id = count
+		newEnemySpawn.global_position = Vector2(-25, i.global_position.y)
 		newEnemySpawn.add_to_group("enemySpawns")
 #	for number in level:
 		var newTower = Tower.instance()
