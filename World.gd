@@ -23,16 +23,16 @@ func loadTowers():
 		newEnemySpawn.global_position = Vector2(-25, i.global_position.y)
 		newEnemySpawn.add_to_group("enemySpawns")
 #	for number in level:
-		var newTower = Tower.instance()
-		add_child(newTower)
-		newTower.number = count
-		newTower.initialize(count)
-		newTower.global_position = Vector2(size.x-30, i.global_position.y)
+#		var newTower = Tower.instance()
+#		add_child(newTower)
+#		newTower.number = count
+#		newTower.initialize(count)
+#		newTower.global_position = Vector2(size.x-30, i.global_position.y)
 		#newTower.global_position = newTower.positions[number]
 	
 func _ready():
 	print(size)
-	loadTowers()
+	#loadTowers()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,11 +41,9 @@ func _ready():
 	#timer += delta
 	#if timer > 15:
 	#	level += 1
-
-
-func _on_GameOver_mouse_entered():
-
-	pass # Replace with function body.
+func gameOver():
+	print("GameOver")
+	#get_node("../GameOver").visible = true
 
 
 func _on_GameOver_hide():
@@ -58,4 +56,14 @@ func _on_GameOver_gui_input(event):
 	enemys = get_tree().get_nodes_in_group("enemys")
 	for i in enemys:
 		i.queue_free()
+	pass # Replace with function body.
+
+
+func _on_Collision_body_entered(body):
+	if body.is_in_group("enemys"):
+		body.queue_free()
+		if $Score.score >= 20:
+			get_node("../Score").score -= 20
+			print("Treffer!")
+		else: gameOver()
 	pass # Replace with function body.

@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://GameOver.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Art/Saite.png" type="Texture" id=2]
 [ext_resource path="res://Score.gd" type="Script" id=3]
-[ext_resource path="res://EnemySpawn.tscn" type="PackedScene" id=4]
 [ext_resource path="res://World.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Art/photo_2021-05-17 13.45.59.jpeg" type="Texture" id=6]
 [ext_resource path="res://Assets/Art/HG-Restartscreen-1280x800px.png" type="Texture" id=7]
+[ext_resource path="res://saiten.gd" type="Script" id=8]
+[ext_resource path="res://Assets/Art/saite1.png" type="Texture" id=9]
 
 [sub_resource type="Environment" id=1]
 
@@ -20,10 +21,13 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 14.7369, 192.115 )
+
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
+"frames": [ ExtResource( 2 ), ExtResource( 9 ), ExtResource( 2 ) ],
+"loop": false,
 "name": "default",
 "speed": 5.0
 } ]
@@ -31,8 +35,6 @@ animations = [ {
 [node name="WorldEnvironment" type="WorldEnvironment"]
 environment = SubResource( 1 )
 script = ExtResource( 5 )
-
-[node name="EnemySpawn" parent="." instance=ExtResource( 4 )]
 
 [node name="Score" type="Node" parent="."]
 script = ExtResource( 3 )
@@ -70,90 +72,99 @@ scale = Vector2( 1.26593, 1.53056 )
 z_index = -2
 frames = SubResource( 3 )
 
+[node name="Collision" type="Area2D" parent="Piano"]
+scale = Vector2( 1, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piano/Collision"]
+position = Vector2( 261.886, 58.2524 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 5 )
+
 [node name="Saite1" type="AnimatedSprite" parent="Piano" groups=[
 "Saiten",
 ]]
 position = Vector2( -250.933, 217.007 )
 frames = SubResource( 4 )
-playing = true
+script = ExtResource( 8 )
 
 [node name="Saite2" type="AnimatedSprite" parent="Piano" groups=[
 "Saiten",
 ]]
 position = Vector2( -251.668, 187.224 )
 frames = SubResource( 4 )
-playing = true
+script = ExtResource( 8 )
 
 [node name="Saite3" type="AnimatedSprite" parent="Piano" groups=[
 "Saiten",
 ]]
 position = Vector2( -251.668, 161.09 )
 frames = SubResource( 4 )
-playing = true
+script = ExtResource( 8 )
 
 [node name="Saite4" type="AnimatedSprite" parent="Piano" groups=[
 "Saiten",
 ]]
 position = Vector2( -251.668, 131.689 )
 frames = SubResource( 4 )
-playing = true
+script = ExtResource( 8 )
 
 [node name="Saite5" type="AnimatedSprite" parent="Piano" groups=[
 "Saiten",
 ]]
 position = Vector2( -251.668, 105.555 )
 frames = SubResource( 4 )
-playing = true
+script = ExtResource( 8 )
 
 [node name="Saite6" type="AnimatedSprite" parent="Piano" groups=[
 "Saiten",
 ]]
 position = Vector2( -251.668, 80.0739 )
 frames = SubResource( 4 )
-playing = true
+script = ExtResource( 8 )
 
 [node name="Saite7" type="AnimatedSprite" parent="Piano" groups=[
 "Saiten",
 ]]
 position = Vector2( -251.668, 46.7528 )
 frames = SubResource( 4 )
-playing = true
+script = ExtResource( 8 )
 
 [node name="Saite8" type="AnimatedSprite" parent="Piano" groups=[
 "Saiten",
 ]]
 position = Vector2( -251.668, 5.59145 )
 frames = SubResource( 4 )
-playing = true
+script = ExtResource( 8 )
 
 [node name="Saite9" type="AnimatedSprite" parent="Piano" groups=[
 "Saiten",
 ]]
 position = Vector2( -251.668, -29.0364 )
 frames = SubResource( 4 )
-playing = true
+script = ExtResource( 8 )
 
 [node name="Saite10" type="AnimatedSprite" parent="Piano" groups=[
 "Saiten",
 ]]
 position = Vector2( -251.668, -59.0907 )
 frames = SubResource( 4 )
-playing = true
+script = ExtResource( 8 )
 
 [node name="Saite11" type="AnimatedSprite" parent="Piano" groups=[
 "Saiten",
 ]]
 position = Vector2( -251.668, -85.8782 )
 frames = SubResource( 4 )
-playing = true
+script = ExtResource( 8 )
 
 [node name="Saite12" type="AnimatedSprite" parent="Piano" groups=[
 "Saiten",
 ]]
 position = Vector2( -251.668, -116.586 )
 frames = SubResource( 4 )
-playing = true
+script = ExtResource( 8 )
 
 [connection signal="gui_input" from="GameOver" to="." method="_on_GameOver_gui_input"]
 [connection signal="hide" from="GameOver" to="." method="_on_GameOver_hide"]
 [connection signal="mouse_entered" from="GameOver" to="." method="_on_GameOver_mouse_entered"]
+[connection signal="body_entered" from="Piano/Collision" to="." method="_on_Collision_body_entered"]

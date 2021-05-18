@@ -1,15 +1,15 @@
 extends Node2D
 
-var Enemy= preload("res://enemy.tscn") 
+var Enemy= preload("res://enemy.tscn")
 var timer
 var initialPos
 
-var enemyNumber 
+var enemyNumber
 var spawnTime
 var height = 1
 var count = 0
 var size = OS.window_size
-var saiten 
+var saiten
 var id = 1
 var spawnTimes
 var spawnEnd
