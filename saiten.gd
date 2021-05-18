@@ -77,6 +77,8 @@ func spawnEnemy():
 		add_child(newEnemy)
 		print(id)
 		newEnemy.global_position = Vector2(-25, self.global_position.y)
+		newEnemy.scale.x = 0.5
+		newEnemy.scale.y = 0.327
 		newEnemy.add_to_group("enemys")
 
 		
