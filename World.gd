@@ -5,24 +5,24 @@ var size = OS.window_size
 # var a = 2
 # var b = "text"
 #var timer = 0
-var EnemySpawn= preload("res://EnemySpawn.tscn") 
-var Tower= preload("res://Tower.tscn") 
-var level = 12
-var saiten
-var count
+#var EnemySpawn= preload("res://EnemySpawn.tscn") 
+#var Tower= preload("res://Tower.tscn") 
+#var level = 12
+#var saiten
+#var count
 var enemys
 # Called when the node enters the scene tree for the first time.
-func loadTowers():
-	saiten = get_tree().get_nodes_in_group("Saiten")
-	count = 0
-	for i in saiten:
-		count += 1
-		var newEnemySpawn = EnemySpawn.instance()
-		add_child(newEnemySpawn)
-		newEnemySpawn.id = count
-		newEnemySpawn.global_position = Vector2(-25, i.global_position.y)
-		newEnemySpawn.add_to_group("enemySpawns")
-#	for number in level:
+#func loadTowers():
+#	saiten = get_tree().get_nodes_in_group("Saiten")
+#	count = 0
+#	for i in saiten:
+#		count += 1
+#		var newEnemySpawn = EnemySpawn.instance()
+#		add_child(newEnemySpawn)
+#		newEnemySpawn.id = count
+#		newEnemySpawn.global_position = Vector2(-25, i.global_position.y)
+#		newEnemySpawn.add_to_group("enemySpawns")
+##	for number in level:
 #		var newTower = Tower.instance()
 #		add_child(newTower)
 #		newTower.number = count
