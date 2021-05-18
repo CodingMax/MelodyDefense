@@ -35,24 +35,27 @@ func initialize(num):
 	spawnEnd = spawnTimes.size()
 
 func _process(delta):
-	if !self.playing:
+	if self.playing:
 		timer += delta
-		if timer > 0.5 :
+		if timer > 2:
+			print("Stop")
+			self.frame = 0
 			self.stop()
-			#frame = 0
-			print(frame)
+			self.play("idle")
 			timer = 0
 	if Input.is_action_just_pressed(key):
 		shoot()
 	enemyClock(delta)
 
 func shoot():
-	self.play()
+	self.stop()
+	self.play("swinging")
 	player.play()
 	if get_child_count() != 0:
-		print(get_child_count())
+		#print(get_child_count())
 		for child in get_children():
 			if child.is_in_group("enemys") :
+				get_node("../../Score").score += 1
 				child.queue_free()
 	#Shakedown
 
@@ -62,7 +65,7 @@ func enemyClock(delta):
 		enemyNumber = 0
 	spawnTime = spawnTimes[enemyNumber]*id
 	if timer > spawnTime:
-		print(enemyNumber)
+		#print(enemyNumber)
 		spawnEnemy()
 		timer = 0
 		enemyNumber += 1
@@ -79,7 +82,7 @@ func _on_Saite_body_entered(body):
 		score = get_node("../../Score").score
 		if score >= 20:
 			get_node("../../Score").score -= 20
-			print("Treffer!")
+			#print("Treffer!")
 		else: gameOver()
 		
 func gameOver():
