@@ -22,10 +22,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 14.7369, 192.115 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 9 ), ExtResource( 4 ) ],
 "loop": true,
@@ -79,19 +79,17 @@ z_index = -2
 frames = SubResource( 3 )
 
 [node name="Collision" type="Area2D" parent="Piano"]
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Piano/Collision"]
 position = Vector2( 261.886, 58.2524 )
-scale = Vector2( 1, 1 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="Saite1" type="AnimatedSprite" parent="Piano" groups=[
 "Saiten",
 ]]
 position = Vector2( -99.346, 212.85 )
 scale = Vector2( 0.696, 1 )
-frames = SubResource( 4 )
+frames = SubResource( 5 )
 animation = "idle"
 script = ExtResource( 8 )
 
@@ -100,7 +98,7 @@ script = ExtResource( 8 )
 ]]
 position = Vector2( -99.346, 183.067 )
 scale = Vector2( 0.696, 1 )
-frames = SubResource( 4 )
+frames = SubResource( 5 )
 animation = "idle"
 script = ExtResource( 8 )
 
@@ -109,7 +107,7 @@ script = ExtResource( 8 )
 ]]
 position = Vector2( -99.346, 156.933 )
 scale = Vector2( 0.696, 1 )
-frames = SubResource( 4 )
+frames = SubResource( 5 )
 animation = "idle"
 script = ExtResource( 8 )
 
@@ -118,7 +116,7 @@ script = ExtResource( 8 )
 ]]
 position = Vector2( -99.346, 127.532 )
 scale = Vector2( 0.696, 1 )
-frames = SubResource( 4 )
+frames = SubResource( 5 )
 animation = "idle"
 script = ExtResource( 8 )
 
@@ -127,7 +125,7 @@ script = ExtResource( 8 )
 ]]
 position = Vector2( -99.346, 101.398 )
 scale = Vector2( 0.696, 1 )
-frames = SubResource( 4 )
+frames = SubResource( 5 )
 animation = "idle"
 script = ExtResource( 8 )
 
@@ -136,7 +134,7 @@ script = ExtResource( 8 )
 ]]
 position = Vector2( -99.346, 72.7462 )
 scale = Vector2( 0.696, 1 )
-frames = SubResource( 4 )
+frames = SubResource( 5 )
 animation = "idle"
 script = ExtResource( 8 )
 
@@ -145,7 +143,7 @@ script = ExtResource( 8 )
 ]]
 position = Vector2( -99.346, 42.5961 )
 scale = Vector2( 0.696, 1 )
-frames = SubResource( 4 )
+frames = SubResource( 5 )
 animation = "idle"
 script = ExtResource( 8 )
 
@@ -154,7 +152,7 @@ script = ExtResource( 8 )
 ]]
 position = Vector2( -99.346, 1.43472 )
 scale = Vector2( 0.696, 1 )
-frames = SubResource( 4 )
+frames = SubResource( 5 )
 animation = "idle"
 script = ExtResource( 8 )
 
@@ -163,7 +161,7 @@ script = ExtResource( 8 )
 ]]
 position = Vector2( -99.346, -33.1931 )
 scale = Vector2( 0.696, 1 )
-frames = SubResource( 4 )
+frames = SubResource( 5 )
 animation = "idle"
 script = ExtResource( 8 )
 
@@ -172,7 +170,7 @@ script = ExtResource( 8 )
 ]]
 position = Vector2( -99.346, -63.2474 )
 scale = Vector2( 0.696, 1 )
-frames = SubResource( 4 )
+frames = SubResource( 5 )
 animation = "idle"
 script = ExtResource( 8 )
 
@@ -181,7 +179,7 @@ script = ExtResource( 8 )
 ]]
 position = Vector2( -99.346, -90.0349 )
 scale = Vector2( 0.696, 1 )
-frames = SubResource( 4 )
+frames = SubResource( 5 )
 animation = "idle"
 script = ExtResource( 8 )
 
@@ -190,11 +188,11 @@ script = ExtResource( 8 )
 ]]
 position = Vector2( -99.346, -120.743 )
 scale = Vector2( 0.696, 1 )
-frames = SubResource( 4 )
+frames = SubResource( 5 )
 animation = "idle"
 script = ExtResource( 8 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Instructions" type="RichTextLabel" parent="."]
 margin_left = 188.0
 margin_top = 229.0
 margin_right = 716.0
@@ -211,5 +209,5 @@ __meta__ = {
 [connection signal="gui_input" from="GameOver" to="." method="_on_GameOver_gui_input"]
 [connection signal="hide" from="GameOver" to="." method="_on_GameOver_hide"]
 [connection signal="mouse_entered" from="GameOver" to="." method="_on_GameOver_mouse_entered"]
-[connection signal="body_entered" from="Piano/Collision" to="." method="_on_Collision_body_entered"]
 [connection signal="body_entered" from="Piano/Collision" to="Piano/Saite1" method="_on_Collision_body_entered"]
+[connection signal="body_entered" from="Piano/Collision" to="." method="_on_Collision_body_entered"]

@@ -51,6 +51,7 @@ func _process(delta):
 func shoot():
 	if self.is_playing():
 		self.stop()
+		self.animation = "idle"
 	else: self.play("swinging")
 	player.play()
 	if get_child_count() >= 0:
@@ -65,7 +66,7 @@ func enemyClock(delta):
 	timer += delta
 	if enemyNumber == spawnEnd:
 		enemyNumber = 0
-	spawnTime = spawnTimes[enemyNumber]#*id
+	spawnTime = spawnTimes[enemyNumber]*id
 	if timer > spawnTime:
 		#print(enemyNumber)
 		spawnEnemy()
@@ -85,6 +86,7 @@ func spawnEnemy():
 func gameOver():
 	print("GameOver")
 	get_node("../../GameOver").visible = true
+	get_node("../../Instructions").visible = false
 	
 func number_to_key(n):
 	match n:

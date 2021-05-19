@@ -52,6 +52,7 @@ func _on_GameOver_hide():
 
 func _on_GameOver_gui_input(event):
 	get_node("GameOver").hide()
+	get_node("../../Instructions").visible = true
 	get_node("Score").score = 0
 	enemys = get_tree().get_nodes_in_group("enemys")
 	for i in enemys:
@@ -63,7 +64,7 @@ func _on_Collision_body_entered(body):
 	if body.is_in_group("enemys"):
 		body.queue_free()
 		if $Score.score >= 20:
-			get_node("../Score").score -= 20
+			get_node("../../Score").score -= 20
 			print("Treffer!")
 		else: gameOver()
 	pass # Replace with function body.
