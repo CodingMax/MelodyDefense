@@ -209,5 +209,5 @@ __meta__ = {
 [connection signal="gui_input" from="GameOver" to="." method="_on_GameOver_gui_input"]
 [connection signal="hide" from="GameOver" to="." method="_on_GameOver_hide"]
 [connection signal="mouse_entered" from="GameOver" to="." method="_on_GameOver_mouse_entered"]
-[connection signal="body_entered" from="Piano/Collision" to="Piano/Saite1" method="_on_Collision_body_entered"]
 [connection signal="body_entered" from="Piano/Collision" to="." method="_on_Collision_body_entered"]
+[connection signal="body_entered" from="Piano/Collision" to="Piano/Saite1" method="_on_Collision_body_entered"]

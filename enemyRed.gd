@@ -1,7 +1,7 @@
 extends KinematicBody2D
 var initialPos 
 var speed
-var type
+var type = "red"
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

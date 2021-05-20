@@ -2,7 +2,7 @@ extends AnimatedSprite
 var size = OS.window_size
 
 var Enemy= preload("res://enemy.tscn")
-
+var EnemyRed= preload("res://enemyRed.tscn")
 var id
 #var number = 1
 var key
@@ -15,6 +15,7 @@ var enemyNumber
 var spawnTime
 var 	spawnTimes = [1, 4, 6, 10, 15, 12]
 var spawnEnd
+var newEnemy
 
 var sound
 var player
@@ -74,7 +75,11 @@ func enemyClock(delta):
 		enemyNumber += 1
 
 func spawnEnemy():
-		var newEnemy = Enemy.instance()
+		match enemyNumber:
+			1: 
+				newEnemy = EnemyRed.instance()
+			_: 
+				newEnemy = Enemy.instance()
 		add_child(newEnemy)
 		print(id)
 		newEnemy.global_position = Vector2(-25, self.global_position.y)
