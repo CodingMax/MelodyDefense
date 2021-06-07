@@ -1,4 +1,5 @@
 extends AnimatedSprite
+
 var size = OS.window_size
 
 var Enemy= preload("res://enemy.tscn")
@@ -10,20 +11,21 @@ var key
 var score
 
 var timer = 0.0
+var variable
 var timer2 = 0.0
 var enemyNumber
 var spawnTime
 var 	spawnTimes = [1, 4, 6, 10, 15, 12]
 var spawnEnd
 var newEnemy
-
+#var activated
 var sound
 var player
 
 
 
 func _ready():
-	id = int(self.name.replace("Saite", ""))
+	id = int(self.name.replace("Saite", "")) 
 	print(id)
 	loadSound()
 	spawnEnd = spawnTimes.size()
@@ -39,7 +41,7 @@ func _process(delta):
 		if self.is_playing():
 			timer2 += delta
 			if timer2 > 0.3:
-				print("Stop")
+				#print("Stop")
 				#self.frame = 0
 				#self.stop()
 				self.play("idle")
@@ -81,8 +83,8 @@ func spawnEnemy():
 			_: 
 				newEnemy = Enemy.instance()
 		add_child(newEnemy)
-		print(id)
-		newEnemy.global_position = Vector2(-25, self.global_position.y)
+		#print(id)
+		newEnemy.global_position = Vector2(self.global_position.x, 25)
 		newEnemy.scale.x = 0.5
 		newEnemy.scale.y = 0.327
 		newEnemy.add_to_group("enemys")
@@ -115,7 +117,7 @@ func loadSound():
 	player.stream = load("res://Assets/Sounds/Piano.ogg")
 	player.volume_db = -20
 	player.pitch_scale =  id*(0.08333333) + 0.5
-	print("Sound loaded")
+	#print("Sound loaded")
 
 
 func _on_Collision_body_entered(body):

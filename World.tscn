@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://GameOver.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Art/Saite.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Assets/Art/HG-Restartscreen-1280x800px.png" type="Texture" id=7]
 [ext_resource path="res://saiten.gd" type="Script" id=8]
 [ext_resource path="res://Assets/Art/saite1.png" type="Texture" id=9]
+[ext_resource path="res://lexend-master/new_dynamicfont.tres" type="DynamicFont" id=10]
+[ext_resource path="res://scales.gd" type="Script" id=11]
 
 [sub_resource type="Environment" id=1]
 
@@ -73,7 +75,8 @@ __meta__ = {
 }
 
 [node name="Piano" type="AnimatedSprite" parent="."]
-position = Vector2( 534.457, 203.223 )
+position = Vector2( 405.095, 52.6224 )
+rotation = 1.57079
 scale = Vector2( 1.26593, 1.53056 )
 z_index = -2
 frames = SubResource( 3 )
@@ -150,7 +153,7 @@ script = ExtResource( 8 )
 [node name="Saite8" type="AnimatedSprite" parent="Piano" groups=[
 "Saiten",
 ]]
-position = Vector2( -99.346, 1.43472 )
+position = Vector2( -96.8614, -0.556229 )
 scale = Vector2( 0.696, 1 )
 frames = SubResource( 5 )
 animation = "idle"
@@ -192,12 +195,41 @@ frames = SubResource( 5 )
 animation = "idle"
 script = ExtResource( 8 )
 
+[node name="Saite13" type="AnimatedSprite" parent="Piano" groups=[
+"Saiten",
+]]
+position = Vector2( -97.6891, -165.871 )
+scale = Vector2( 0.696, 1 )
+frames = SubResource( 5 )
+animation = "idle"
+script = ExtResource( 8 )
+
+[node name="Saite14" type="AnimatedSprite" parent="Piano" groups=[
+"Saiten",
+]]
+position = Vector2( -98.517, -198.059 )
+scale = Vector2( 0.696, 1 )
+frames = SubResource( 5 )
+animation = "idle"
+script = ExtResource( 8 )
+
+[node name="Saite15" type="AnimatedSprite" parent="Piano" groups=[
+"Saiten",
+]]
+position = Vector2( -96.032, -230.246 )
+scale = Vector2( 0.696, 1 )
+frames = SubResource( 5 )
+animation = "idle"
+script = ExtResource( 8 )
+
 [node name="Instructions" type="RichTextLabel" parent="."]
-margin_left = 188.0
-margin_top = 229.0
-margin_right = 716.0
-margin_bottom = 306.0
-rect_scale = Vector2( 1.576, 1.746 )
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 34.7643
+margin_top = 561.824
+margin_right = 808.764
+margin_bottom = 638.824
+custom_fonts/mono_font = ExtResource( 10 )
+custom_fonts/normal_font = ExtResource( 10 )
 bbcode_enabled = true
 bbcode_text = "UseA -> L & I O P Keys to play the notes and fend off the bugs!"
 tab_size = 5
@@ -206,8 +238,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="RichTextLabel" type="Label" parent="."]
+modulate = Color( 0.0705882, 0.0588235, 0.0588235, 1 )
+margin_left = 64.4353
+margin_top = 490.492
+margin_right = 104.471
+margin_bottom = 530.492
+custom_fonts/font = ExtResource( 10 )
+text = "A "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScalePicker" type="OptionButton" parent="."]
+margin_right = 80.0
+margin_bottom = 54.0
+text = "Scale"
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+dropdown_path = NodePath(".")
+
 [connection signal="gui_input" from="GameOver" to="." method="_on_GameOver_gui_input"]
 [connection signal="hide" from="GameOver" to="." method="_on_GameOver_hide"]
 [connection signal="mouse_entered" from="GameOver" to="." method="_on_GameOver_mouse_entered"]
-[connection signal="body_entered" from="Piano/Collision" to="." method="_on_Collision_body_entered"]
 [connection signal="body_entered" from="Piano/Collision" to="Piano/Saite1" method="_on_Collision_body_entered"]
+[connection signal="body_entered" from="Piano/Collision" to="." method="_on_Collision_body_entered"]
+[connection signal="item_selected" from="ScalePicker" to="ScalePicker" method="_on_ScalePicker_item_selected"]
