@@ -250,19 +250,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScalePicker" type="OptionButton" parent="."]
-margin_right = 80.0
-margin_bottom = 54.0
-text = "Scale"
+[node name="RootPicker" type="OptionButton" parent="."]
+margin_left = 2.0
+margin_top = -1.0
+margin_right = 71.0
+margin_bottom = 36.0
+text = "RootNote"
+clip_text = true
 script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-dropdown_path = NodePath(".")
+dropdownScale_path = NodePath("../ScalePicker")
+dropdownRoot_path = NodePath(".")
+
+[node name="ScalePicker" type="OptionButton" parent="."]
+margin_top = 39.0
+margin_right = 68.0
+margin_bottom = 78.0
+text = "Scale"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="gui_input" from="GameOver" to="." method="_on_GameOver_gui_input"]
 [connection signal="hide" from="GameOver" to="." method="_on_GameOver_hide"]
 [connection signal="mouse_entered" from="GameOver" to="." method="_on_GameOver_mouse_entered"]
 [connection signal="body_entered" from="Piano/Collision" to="Piano/Saite1" method="_on_Collision_body_entered"]
 [connection signal="body_entered" from="Piano/Collision" to="." method="_on_Collision_body_entered"]
-[connection signal="item_selected" from="ScalePicker" to="ScalePicker" method="_on_ScalePicker_item_selected"]
+[connection signal="item_selected" from="RootPicker" to="RootPicker" method="_on_ScalePicker_item_selected"]
+[connection signal="item_selected" from="ScalePicker" to="RootPicker" method="_on_OptionButton_item_selected"]
