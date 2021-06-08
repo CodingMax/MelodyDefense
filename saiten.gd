@@ -89,12 +89,9 @@ func spawnEnemy():
 		newEnemy.scale.y = 0.327
 		newEnemy.add_to_group("enemys")
 
-		
-func gameOver():
-	print("GameOver")
-	get_node("../../GameOver").visible = true
-	get_node("../../Instructions").visible = false
-	
+
+
+
 func number_to_key(n):
 	match n:
 		1: return "a"
@@ -120,11 +117,3 @@ func loadSound():
 	#print("Sound loaded")
 
 
-func _on_Collision_body_entered(body):
-		if body.is_in_group("enemys"):
-			body.queue_free()
-			score = get_node("../../Score").score
-		if score >= 20:
-			get_node("../../Score").score -= 20
-			#print("Treffer!")
-		else: gameOver()

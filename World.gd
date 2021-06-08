@@ -12,6 +12,8 @@ func _ready():
 
 func gameOver():
 	print("GameOver")
+	get_node("GameOver").visible = true
+	get_node("Instructions").visible = false
 	#get_node("../GameOver").visible = true
 
 
@@ -25,6 +27,7 @@ func restartGame():
 	enemys = get_tree().get_nodes_in_group("enemys")
 	for i in enemys:
 		i.queue_free()
+		
 func _on_GameOver_gui_input(event):
 	restartGame()
 
