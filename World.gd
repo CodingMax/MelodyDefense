@@ -18,15 +18,15 @@ func gameOver():
 func _on_GameOver_hide():
 	pass # Replace with function body.
 
-
-func _on_GameOver_gui_input(event):
+func restartGame():
 	get_node("GameOver").hide()
 	get_node("Instructions").visible = true
 	get_node("Score").score = 0
 	enemys = get_tree().get_nodes_in_group("enemys")
 	for i in enemys:
 		i.queue_free()
-	pass # Replace with function body.
+func _on_GameOver_gui_input(event):
+	restartGame()
 
 
 func _on_Collision_body_entered(body):
